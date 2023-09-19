@@ -66,9 +66,12 @@ public class TaskControllerTest {
                         .get("/v1/tasks")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().is(200)) // or isOk()
-                .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(1)));
+                .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(1)))
 
-
+                // Task fields
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].id", Matchers.is(1)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].title", Matchers.is("Task 1")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].content", Matchers.is("Description 1")));
     }
 
     @Test

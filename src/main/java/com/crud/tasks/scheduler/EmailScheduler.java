@@ -31,11 +31,11 @@ public class EmailScheduler {
         );
     }
 
-    String generateTaskOrTasksText(long size){
-        if (size > 1 ){
-            return " tasks";
-        }else {
+    private String generateTaskOrTasksText(long size){
+        if (size == 1 ){
             return " task";
+        }else {
+            return " tasks";
         }
     }
 }
